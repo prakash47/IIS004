@@ -110,7 +110,7 @@ export default function AboutPage() {
                                         <div className="flex-1 text-center md:text-right">
                                             {i % 2 === 0 && (
                                                 <>
-                                                    <span className="text-5xl font-bold text-base-300 font-serif block mb-2">{item.year}</span>
+                                                    <span className="text-5xl font-bold text-primary font-serif block mb-2">{item.year}</span>
                                                     <h3 className="text-xl font-bold">{item.title}</h3>
                                                     <p className="opacity-70 text-sm mt-2">{item.desc}</p>
                                                 </>
@@ -129,7 +129,7 @@ export default function AboutPage() {
                                         <div className="flex-1 text-center md:text-left">
                                             {i % 2 !== 0 && (
                                                 <>
-                                                    <span className="text-5xl font-bold text-base-300 font-serif block mb-2">{item.year}</span>
+                                                    <span className="text-5xl font-bold text-primary font-serif block mb-2">{item.year}</span>
                                                     <h3 className="text-xl font-bold">{item.title}</h3>
                                                     <p className="opacity-70 text-sm mt-2">{item.desc}</p>
                                                 </>
