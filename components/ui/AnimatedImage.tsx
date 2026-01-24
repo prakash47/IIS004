@@ -8,7 +8,7 @@ interface AnimatedImageProps extends ImageProps {
     containerClassName?: string;
 }
 
-export function AnimatedImage({ containerClassName, className, ...props }: AnimatedImageProps) {
+export function AnimatedImage({ containerClassName, className, alt, ...props }: AnimatedImageProps) {
     return (
         <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -18,6 +18,7 @@ export function AnimatedImage({ containerClassName, className, ...props }: Anima
             className={cn("relative overflow-hidden", containerClassName)}
         >
             <Image
+                alt={alt}
                 {...props}
                 className={cn("transition-transform duration-700 hover:scale-105", className)}
             />
