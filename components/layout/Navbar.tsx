@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ConsultationModal } from "@/components/contact/ConsultationModal";
@@ -13,6 +14,7 @@ const navLinks = [
     { name: "About", href: "/about" },
     { name: "Portfolio", href: "/portfolio" },
     { name: "Services", href: "/services" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
 ];
 
@@ -24,11 +26,20 @@ export function Navbar() {
     return (
         <>
             <header className="fixed top-0 w-full z-50 bg-base-100/80 backdrop-blur-md border-b border-white/5">
-                <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+                <div className="container mx-auto px-4 h-14 flex items-center justify-between">
                     {/* Logo */}
-                    <Link href="/" className="text-2xl font-bold font-serif tracking-tighter">
-                        AAKAR
+
+                    <Link href="/" className="flex items-center gap-2 text-xl font-bold font-serif tracking-tighter">
+                        <Image
+                            src="/logo-new.png"
+                            alt="Aakar Logo"
+                            width={32}
+                            height={32}
+                            className="w-8 h-8 object-contain"
+                        />
+                        <span>AAKAR</span>
                     </Link>
+
 
                     {/* Desktop Nav */}
                     <nav className="hidden md:flex items-center gap-8">
@@ -37,7 +48,7 @@ export function Navbar() {
                                 key={link.href}
                                 href={link.href}
                                 className={cn(
-                                    "text-sm font-medium transition-colors hover:text-primary",
+                                    "text-base font-medium transition-colors hover:text-primary",
                                     pathname === link.href ? "text-primary" : "text-base-content/70"
                                 )}
                             >
@@ -46,7 +57,7 @@ export function Navbar() {
                         ))}
                         <button
                             onClick={() => setIsModalOpen(true)}
-                            className="btn btn-primary btn-sm rounded-full px-6"
+                            className="btn btn-primary rounded-full px-6 text-sm"
                         >
                             Book Consultation
                         </button>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { PortfolioGrid } from "@/components/portfolio/PortfolioGrid";
@@ -9,18 +10,31 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Star, Users, Clock, Quote } from "lucide-react";
 import { ConsultationModal } from "@/components/contact/ConsultationModal";
 import { useState } from "react";
+import { BrandStorySection } from "@/components/home/BrandStorySection";
+import { ProcessSection } from "@/components/home/ProcessSection";
+import { BlogPreviewSection } from "@/components/home/BlogPreviewSection";
+import { FAQSection } from "@/components/home/FAQSection";
+import { NewsletterSection } from "@/components/home/NewsletterSection";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <>
       <Navbar />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Using a very reliable Unsplash ID for Architecture */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center" />
+        {/* Optimized Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2000&auto=format&fit=crop"
+            alt="Luxury Interior Design"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
         <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" />
 
         <div className="relative z-10 container mx-auto px-4 text-center text-white space-y-8">
@@ -68,6 +82,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Brand Story Section (New) */}
+      <BrandStorySection />
+
       {/* Featured Projects */}
       <section className="py-24 bg-base-100">
         <div className="container mx-auto px-4">
@@ -90,6 +107,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Process Section (New) */}
+      <ProcessSection />
 
       {/* Before & After Feature */}
       <section className="py-24 bg-base-200">
@@ -132,38 +152,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials (New Section) */}
-      <section className="py-24 bg-primary/5">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-2">Testimonials</h2>
-            <h3 className="text-4xl font-serif font-bold">What Our Clients Say</h3>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { name: "Dr. Anjali Gupta", role: "Villa Owner", text: "Aakar Interiors completely transformed our home. The attention to detail and ability to capture our personality in the design was remarkable." },
-              { name: "Rajesh Malhotra", role: "CEO, TechSolutions", text: "We hired them for our new office space in Bangalore. They created a vibrant, productive environment that our employees love. Highly recommended!" },
-              { name: "Sarah Williams", role: "Expat", text: "Finding a reliable designer in a new city can be hard, but Aakar made it seamless. They handled everything from sourcing to installation." }
-            ].map((t, i) => (
-              <div key={i} className="bg-base-100 p-8 rounded-xl shadow-lg relative">
-                <Quote className="absolute top-8 right-8 text-primary/20" size={40} />
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-neutral rounded-full flex items-center justify-center text-white font-serif font-bold text-xl">
-                    {t.name[0]}
-                  </div>
-                  <div>
-                    <h5 className="font-bold">{t.name}</h5>
-                    <p className="text-xs opacity-60 uppercase tracking-wider">{t.role}</p>
-                  </div>
-                </div>
-                <p className="opacity-80 leading-relaxed italic">&quot;{t.text}&quot;</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Services Preview */}
       <section className="py-24 bg-neutral text-neutral-content">
         <div className="container mx-auto px-4 text-center">
@@ -200,6 +188,47 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials */}
+      <section className="py-24 bg-primary/5">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-2">Testimonials</h2>
+            <h3 className="text-4xl font-serif font-bold">What Our Clients Say</h3>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { name: "Dr. Anjali Gupta", role: "Villa Owner", text: "Aakar Interiors completely transformed our home. The attention to detail and ability to capture our personality in the design was remarkable." },
+              { name: "Rajesh Malhotra", role: "CEO, TechSolutions", text: "We hired them for our new office space in Bangalore. They created a vibrant, productive environment that our employees love. Highly recommended!" },
+              { name: "Sarah Williams", role: "Expat", text: "Finding a reliable designer in a new city can be hard, but Aakar made it seamless. They handled everything from sourcing to installation." }
+            ].map((t, i) => (
+              <div key={i} className="bg-base-100 p-8 rounded-xl shadow-lg relative">
+                <Quote className="absolute top-8 right-8 text-primary/20" size={40} />
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-neutral rounded-full flex items-center justify-center text-white font-serif font-bold text-xl">
+                    {t.name[0]}
+                  </div>
+                  <div>
+                    <h5 className="font-bold">{t.name}</h5>
+                    <p className="text-xs opacity-60 uppercase tracking-wider">{t.role}</p>
+                  </div>
+                </div>
+                <p className="opacity-80 leading-relaxed italic">&quot;{t.text}&quot;</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Blog Preview (New) */}
+      <BlogPreviewSection />
+
+      {/* FAQ Section (New) */}
+      <FAQSection />
+
+      {/* Newsletter Section (New) */}
+      <NewsletterSection />
 
       <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <Footer />

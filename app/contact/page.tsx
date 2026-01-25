@@ -3,16 +3,43 @@ import { Footer } from "@/components/layout/Footer";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { Mail, MapPin, Phone, Clock, ArrowRight } from "lucide-react";
 import { AnimatedImage } from "@/components/ui/AnimatedImage";
+import { Metadata } from "next";
+
+// SEO Metadata for Contact Page
+export const metadata: Metadata = {
+    title: "Contact Us - Book Free Interior Design Consultation",
+    description: "Get in touch with Aakar Interiors for your dream project. Book a free consultation today! Visit our Mumbai studio at Bandra West or call +91-22-2640-5555. We respond within 24 hours.",
+    keywords: [
+        "contact interior designer Mumbai",
+        "interior design consultation",
+        "book interior designer",
+        "interior design quote",
+        "Mumbai interior design studio",
+        "Bandra interior designers",
+        "free design consultation",
+        "interior design inquiry",
+    ],
+    alternates: {
+        canonical: "https://aakarinteriors.com/contact",
+    },
+    openGraph: {
+        title: "Contact Aakar Interiors | Book Free Consultation",
+        description: "Ready to transform your space? Contact Mumbai's premier interior design studio. Free consultation available.",
+        url: "https://aakarinteriors.com/contact",
+        type: "website",
+    },
+};
+
 
 export default function ContactPage() {
     return (
         <>
             <Navbar />
-            <main className="min-h-screen pt-24 pb-12">
+            <main className="min-h-screen pt-14 pb-12">
                 <div className="container mx-auto px-4">
 
                     {/* Header */}
-                    <div className="text-center mb-16 space-y-4 animate-fade-in-up">
+                    <div className="text-center mb-16 mt-12 space-y-4 animate-fade-in-up">
                         <h1 className="text-4xl md:text-5xl font-serif font-bold">Get In Touch</h1>
                         <p className="opacity-70 max-w-2xl mx-auto text-lg">
                             Ready to start your design journey? We&apos;d love to hear from you. Visit our studio or drop us a line.

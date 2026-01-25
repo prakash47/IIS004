@@ -1,0 +1,31 @@
+{
+    "name": "Aakar Interiors",
+    "short_name": "Aakar",
+    "description": "Award-winning interior design studio in Mumbai. Premium residential, commercial, and hospitality interior design services.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#8B5C3C",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": [
+        "business",
+        "lifestyle",
+        "design"
+    ],
+    "lang": "en",
+    "dir": "ltr"
+}

@@ -9,4 +9,5 @@ export interface Project {
     slug: string;
     location?: string;
     year?: string;
+    featured?: boolean;
 }

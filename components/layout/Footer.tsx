@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 
 export function Footer() {
@@ -9,7 +10,15 @@ export function Footer() {
 
                     {/* Brand */}
                     <div className="space-y-4">
-                        <h3 className="text-2xl font-serif font-bold">AAKAR</h3>
+                        <Link href="/" className="block">
+                            <Image
+                                src="/logo-new.png"
+                                alt="Aakar Logo"
+                                width={60}
+                                height={60}
+                                className="w-[60px] h-[60px] object-contain"
+                            />
+                        </Link>
                         <p className="text-sm opacity-70">
                             Transforming spaces into living works of art. Premium interior design for residential and commercial properties.
                         </p>
